@@ -6,7 +6,10 @@
   "type": "module",
   "scripts": {
     "reset": "cd server/config && node --require dotenv/config reset.js",
-    "start": "cd server && npx nodemon --require dotenv/config server.js"
+    "start": "concurrently \"npm run start_server\" \"npm run start_client\"",
+    "start_server": "cd server && npx nodemon --require dotenv/config server.js",
+    "start_client": "cd client && npm start"
+
   },
   "keywords": [],
   "author": "",
